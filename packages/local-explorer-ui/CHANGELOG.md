@@ -1,5 +1,25 @@
 # @cloudflare/local-explorer-ui
 
+## 0.12.0
+
+### Minor Changes
+
+- [#13330](https://github.com/cloudflare/workers-sdk/pull/13330) [`b30eb67`](https://github.com/cloudflare/workers-sdk/commit/b30eb67130e9b7f7ac30d4e62f16d27f4ea37c8e) Thanks [@NuroDev](https://github.com/NuroDev)! - Update local explorer sidebar with collapsible groups, theme persistence, and Kumo v1.17
+
+  Adds localStorage persistence for sidebar group expansion states and theme mode (light/dark/system). The sidebar now uses Kumo v1.17 primitives with collapsible groups and a theme toggle in the footer.
+
+  Users can now cycle between light, dark, and system theme modes, and their preference will be persisted across sessions.
+
+  Sidebar groups (D1, Durable Objects, KV, R2, Workflows) also remember their collapsed/expanded state.
+
+### Patch Changes
+
+- [#13158](https://github.com/cloudflare/workers-sdk/pull/13158) [`67be6b0`](https://github.com/cloudflare/workers-sdk/commit/67be6b0ab97b0b5f85f9fbae93655ab390e8dbf9) Thanks [@NuroDev](https://github.com/NuroDev)! - Improves local explorer invalid route error handling.
+
+  Visiting a route either as a 404 or 500 error now has dedicated components to handle as such, rather than the generic TanStack error UI.
+
+  Additionally, it also fixes route loaders to correctly throw a 404 error if a resource is not found, rather than showing a generic error.
+
 ## 0.11.0
 
 ### Minor Changes

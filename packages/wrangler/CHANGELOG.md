@@ -1,5 +1,36 @@
 # wrangler
 
+## 4.82.0
+
+### Minor Changes
+
+- [#13353](https://github.com/cloudflare/workers-sdk/pull/13353) [`5338bb6`](https://github.com/cloudflare/workers-sdk/commit/5338bb687e9933702744771fc89850a7471ee1cc) Thanks [@mattzcarey](https://github.com/mattzcarey)! - Add `artifacts:write` to Wrangler's default OAuth scopes, enabling `wrangler login` to request access to Cloudflare Artifacts (registries and artifacts).
+
+- [#13139](https://github.com/cloudflare/workers-sdk/pull/13139) [`79fd529`](https://github.com/cloudflare/workers-sdk/commit/79fd529e62b715405aacc0e643a20ce1af3df9f2) Thanks [@roerohan](https://github.com/roerohan)! - feat: add Flagship feature flag binding support
+
+  Adds end-to-end support for the Flagship feature flag binding, which allows Workers to evaluate feature flags from Cloudflare's Flagship service. Configure it in `wrangler.json` with a `flagship` array containing `binding` and `app_id` entries. In local dev, the binding returns default values for all flag evaluations; use `"remote": true` in the binding to evaluate flags against the live Flagship service.
+
+- [#12983](https://github.com/cloudflare/workers-sdk/pull/12983) [`28bc2be`](https://github.com/cloudflare/workers-sdk/commit/28bc2be6c51e93aa8df75ad223435df35f1981d6) Thanks [@1000hz](https://github.com/1000hz)! - Added the `wrangler preview` command family for creating Preview deployments (currently in private beta).
+
+- [#13197](https://github.com/cloudflare/workers-sdk/pull/13197) [`4fd138b`](https://github.com/cloudflare/workers-sdk/commit/4fd138b8e4d46567419c0202e68423e89cd3d813) Thanks [@shahsimpson](https://github.com/shahsimpson)! - Add `preview` output-file entries for `wrangler preview` deployments
+
+  `wrangler preview` now writes a `preview` entry to the Wrangler output file when `WRANGLER_OUTPUT_FILE_PATH` or `WRANGLER_OUTPUT_FILE_DIRECTORY` is configured. The entry includes the Worker name, preview metadata (`preview_id`, `preview_name`, `preview_slug`, `preview_urls`) and deployment metadata (`deployment_id`, `deployment_urls`).
+
+  This makes preview command runs machine-readable in the same output stream as other Wrangler commands, which helps CI integrations consume preview URLs and IDs directly.
+
+### Patch Changes
+
+- [#13393](https://github.com/cloudflare/workers-sdk/pull/13393) [`c50cb5b`](https://github.com/cloudflare/workers-sdk/commit/c50cb5b4038d8107c4131af1b086ea3261f53518) Thanks [@dependabot](https://github.com/apps/dependabot)! - Update dependencies of "miniflare", "wrangler"
+
+  The following dependency versions have been updated:
+
+  | Dependency | From         | To           |
+  | ---------- | ------------ | ------------ |
+  | workerd    | 1.20260409.1 | 1.20260410.1 |
+
+- Updated dependencies [[`79fd529`](https://github.com/cloudflare/workers-sdk/commit/79fd529e62b715405aacc0e643a20ce1af3df9f2), [`c50cb5b`](https://github.com/cloudflare/workers-sdk/commit/c50cb5b4038d8107c4131af1b086ea3261f53518), [`5eff8c1`](https://github.com/cloudflare/workers-sdk/commit/5eff8c14f08696e5a832875a35e214969aa55b9b)]:
+  - miniflare@4.20260410.0
+
 ## 4.81.1
 
 ### Patch Changes
