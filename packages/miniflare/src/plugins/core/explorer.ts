@@ -2,6 +2,7 @@ import assert from "node:assert";
 import SCRIPT_DO_WRAPPER from "worker:core/do-wrapper";
 import SCRIPT_LOCAL_EXPLORER from "worker:local-explorer/explorer";
 import { OUTBOUND_DO_PROXY_SERVICE_NAME } from "../../shared/external-service";
+import { getLocalExplorerTelemetryConfig } from "../../shared/telemetry-config";
 import { CoreBindings } from "../../workers";
 import { normaliseDurableObject } from "../do";
 import { namespaceEntries, WORKER_BINDING_SERVICE_LOOPBACK } from "../shared";
@@ -68,6 +69,11 @@ export function getExplorerServices(
 		{
 			name: CoreBindings.JSON_EXPLORER_WORKER_OPTS,
 			json: JSON.stringify(explorerWorkerOpts),
+		},
+		// Telemetry configuration (inherits from Wrangler's metrics config)
+		{
+			name: CoreBindings.JSON_TELEMETRY_CONFIG,
+			json: JSON.stringify(getLocalExplorerTelemetryConfig()),
 		},
 	];
 
